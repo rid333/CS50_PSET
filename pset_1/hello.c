@@ -1,9 +1,9 @@
 #include<stdio.h>
 
-int main()
+int main(void)
 {
-    char nama;
+    char name[20];
     printf("What is your name? ");
-    scanf("%s", &nama);
-    printf("Hello, %s", nama);
+    scanf("%s", &name);
+    printf("Hello, %s", name);
 }
