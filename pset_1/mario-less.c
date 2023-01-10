@@ -1,18 +1,33 @@
 #include<stdio.h>
 
+
+int get_height(void);
+void print_mario(int size);
 int main(void) 
 {
-    int n;
+    int n = get_height();
+    print_mario(n);
+}
+
+
+int get_height(void)
+{
+    int m;
     do 
     {
         printf("Height: ");
-        scanf("%i", &n);
+        scanf("%i", &m);
     }
-    while (n > 8 || n < 1);
-    
-    for (int i = 0; i < n; i++)
+    while (m > 8 || m < 1);
+    return(m);
+}
+
+
+void print_mario(int size)
+{
+    for (int i = 0; i < size; i++)
     {
-        for (int k = n - 1 ; k > i ; k--)
+        for (int k = size - 1 ; k > i ; k--)
         {
             printf(" ");
         }
