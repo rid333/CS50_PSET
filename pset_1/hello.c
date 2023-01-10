@@ -3,6 +3,7 @@
 int main()
 {
     char nama;
-    scanf("What is your name? ", &nama);
+    printf("What is your name? ");
+    scanf("%s", &nama);
     printf("Hello, %s", nama);
 }
