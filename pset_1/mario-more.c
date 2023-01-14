@@ -46,7 +46,7 @@ void print_mario(int size)
             printf("#");
         }
 
-        // space
+        // make new line
         printf("\n");  
     }
 }
