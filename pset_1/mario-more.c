@@ -38,7 +38,7 @@ void print_mario(int size)
         }
 
         // space between pyramids
-        printf(" ");
+        printf("  ");
 
         // second pyramid
         for (int m = 0; m <= i; m++)
