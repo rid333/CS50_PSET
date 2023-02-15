@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -16,13 +17,23 @@ int main(void)
     int sentences = calculate_sentences(write);
     int words = calculate_words(write);
 
-    double average_letters = letters / words * 100.0;
-    double average_sentences = sentences / words * 100.0;
+    float average_letters = ((float)letters / words) * 100;
+    float average_sentences = ((float)sentences / words) * 100;
 
-    int index = 0.0588 * average_letters - 0.296 * average_sentences - 15.8;
+    float index = 0.0588 * average_letters - 0.296 * average_sentences - 15.8;
 
-    printf("Grade: %i\n", index);
-    printf("%f dan %f", average_letters, average_sentences);
+    if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (index > 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else
+    {
+        printf("Grade: %.0f\n", roundf(index));
+    }    
 }
 
 int calculate_letters(char text[])
