@@ -33,7 +33,7 @@ int main(void)
     {
         printf("Tie!\n");
     }
-    printf("%i dan %i\n", score1, score2);
+    printf("%i %i\n", score1, score2);
 }
 
 int compute_score(char word[])
