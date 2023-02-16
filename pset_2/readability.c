@@ -10,9 +10,9 @@ int calculate_words(char text[]);
 int main(void) 
 {
     char write[500];
+
     printf("Text: ");
     scanf("%[^\n]", &write);
-
     int letters = calculate_letters(write);
     int sentences = calculate_sentences(write);
     int words = calculate_words(write);
