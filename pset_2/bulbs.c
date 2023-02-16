@@ -7,25 +7,22 @@ void print_bulb(int bit);
 
 int main(void)
 {
-    // TODO
-    char msg[100];
-    
+    char msg[500];
     printf("Message: ");
     scanf("%[^\n]", &msg);
 
     int len = strlen(msg) * BITS_IN_BYTE;
     int binary[len];
     int index = 0;
+
     for (int i = 0; i < strlen(msg); i++)
     {
         char ch = msg[i];
-        if (ch > 32 || ch < 127)
+        for (int j = 0; j < BITS_IN_BYTE; j++)
         {
-            for (int j = 0; j > BITS_IN_BYTE; j++)
-            {
-               binary[index++] = !!((ch << i) & 0x80);
-            }
+            binary[index + j] = (ch >> BITS_IN_BYTE - j - 1 ) & 1;
         }
+        index += BITS_IN_BYTE;
     }
     
     for (int k = 0; k < len; k++)
@@ -33,18 +30,10 @@ int main(void)
         print_bulb(binary[k]);
         if ((k + 1) % 8 == 0)
         {
-             printf("\n");
-        }   
+            printf("\n");
+         }
     }
     printf("\n");
-    for (int k = 0; k < len; k++)
-    {
-        printf("%i", binary[k]);
-        if ((k + 1) % 8 == 0)
-        {
-             printf("\n");
-        }   
-    }
 }
 
 void print_bulb(int bit)
